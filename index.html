@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Food Delivery Website</title>
+  <style>
+    /* Reset margin and padding for all elements */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Main header */
+    .header {
+      text-align: center;
+      background-color: #ff6347;
+      color: white;
+      padding: 30px 0;
+      font-size: 50px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Animation for header */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Section container */
+    .container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 50px;
+      flex-wrap: wrap;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Product image styling */
+    .container img {
+      width: 300px;
+      height: 300px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .container img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Text description styling */
+    .description {
+      max-width: 300px;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .description:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Product title styling */
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff6347;
+      margin-bottom: 10px;
+    }
+
+    /* Price and description text */
+    .description p {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    /* Quantity input styling */
+    .quantity-input {
+      font-size: 18px;
+      padding: 8px;
+      width: 60px;
+      margin-right: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      transition: border-color 0.3s ease;
+    }
+
+    .quantity-input:focus {
+      border-color: #ff6347;
+    }
+
+    /* Order button styling */
+    .order-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .order-btn:hover {
+      background-color: #218838;
+    }
+
+    /* Footer links */
+    .links {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .links a {
+      font-size: 18px;
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 20px;
+      transition: color 0.3s ease;
+    }
+
+    .links a:hover {
+      color: #0056b3;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container img {
+        margin-bottom: 20px;
+      }
+
+      .quantity-input {
+        width: 100px;
+      }
+
+      .order-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Header -->
+  <p class="header">Ahmad Food and Services</p>
+
+  <!-- Contact and Feedback Links -->
+  <div class="links">
+    <a href="tel:+919693478576">Contact</a>
+    <a href="https://wa.me/919693478576?text=Hi%2C%20I%20would%20like%20to%20give%20feedback!" target="_blank">Feedback</a>
+  </div>
+
+  <!-- Gulab Jamun Section -->
+  <div class="container">
+    <!-- Image of Gulab Jamun -->
+    <img src="gulab-jamun.jpg" alt="Gulab Jamun">
+    <!-- Text Description -->
+    <div class="description">
+      <p class="title">Gulab Jamun</p>
+      <p>Price: ₹120 per Kg</p>
+      <p>Cooked with the best quality materials and served fresh.</p>
+      <!-- Quantity Input and Order Button -->
+      <div>
+        <input type="number" id="gulab-quantity" class="quantity-input" placeholder="Qty in Kg" min="1">
+        <button class="order-btn" onclick="order('gulab', '₹120 per Kg')">Order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kurkure Section -->
+  <div class="container">
+    <!-- Image of Kurkure -->
+    <img src="kurkure.jpg" alt="Kurkure">
+    <!-- Text Description -->
+    <div class="description">
+      <p class="title">Kurkure</p>
+      <p>Price: ₹5 per piece</p>
+      <p>Best product for snacks, crunchy and tasty.</p>
+      <!-- Quantity Input and Order Button -->
+      <div>
+        <input type="number" id="kurkure-quantity" class="quantity-input" placeholder="Qty in Pieces" min="1">
+        <button class="order-btn" onclick="order('kurkure', '₹5 per piece')">Order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lays Section -->
+  <div class="container">
+    <!-- Image of Lays -->
+    <img src="lays.jpg" alt="Lays">
+    <!-- Text Description -->
+    <div class="description">
+      <p class="title">Lays</p>
+      <p>Price: ₹5 per piece</p>
+      <p>Best quality chips, crispy and delicious.</p>
+      <!-- Quantity Input and Order Button -->
+      <div>
+        <input type="number" id="lays-quantity" class="quantity-input" placeholder="Qty in Pieces" min="1">
+        <button class="order-btn" onclick="order('lays', '₹5 per piece')">Order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pizza Section -->
+  <div class="container">
+    <!-- Image of Pizza -->
+    <img src="pizza.jpg" alt="Pizza">
+    <!-- Text Description -->
+    <div class="description">
+      <p class="title">Pizza</p>
+      <p>Price: ₹99 per piece</p>
+      <p>Best pizza, too much tasty cheese!</p>
+      <!-- Quantity Input and Order Button -->
+      <div>
+        <input type="number" id="pizza-quantity" class="quantity-input" placeholder="Qty in Pieces" min="1">
+        <button class="order-btn" onclick="order('pizza', '₹99 per piece')">Order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fry Section -->
+  <div class="container">
+    <!-- Image of Fry -->
+    <img src="fry.jpg" alt="Fry">
+    <!-- Text Description -->
+    <div class="description">
+      <p class="title">Best Fry</p>
+      <p>Price: ₹49 per packet</p>
+      <p>Delicious crispy fries, the best snack for you!</p>
+      <!-- Quantity Input and Order Button -->
+      <div>
+        <input type="number" id="fry-quantity" class="quantity-input" placeholder="Qty in Packets" min="1">
+        <button class="order-btn" onclick="order('fry', '₹49 per packet')">Order</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Function to handle the order button click and send quantity with product details
+    function order(product, price) {
+      var quantity = document.getElementById(product + '-quantity').value;
+      if (quantity) {
+        var message = "I want to order " + product.charAt(0).toUpperCase() + product.slice(1) + " for " + price + ". Quantity: " + quantity;
+        window.open('https://wa.me/919693478576?text=' + encodeURIComponent(message), '_blank');
+      } else {
+        alert('Please enter a quantity');
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
